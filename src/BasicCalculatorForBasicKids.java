@@ -34,7 +34,7 @@ public class BasicCalculatorForBasicKids {
 		else
 		{
 			answer = 666;
-			System.out.println(" riperoni ");
+			System.out.println("riperoni");
 		}
 		System.out.println(answer);
 	}
