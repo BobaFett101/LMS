@@ -1,62 +1,40 @@
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class MowerGame implements KeyListener
-{
-	private LawnMowerSimulator game;
-	private int level;
-	private LawnMap current;
-	private char[][] map;
-	private int score;
-	private int x,y;
+@SuppressWarnings("serial")
+public class MowerGame extends JPanel {
 	
-	public MowerGame (LawnMowerSimulator g )
-	{
-		game = g;
-		level = 0;
-		initialize(level);
+	public MowerGame() {
+		KeyListener listener = new MyKeyListener();
+		addKeyListener(listener);
+		setFocusable(true);
 	}
 	
-	private void initialize(int l )
-	{
-		current = game.getLawnList().get(level);
-		map = current.getLawn();
-		x = current.getStartX();
-		y = current.getStartY();
-		// graphics beginning
-	}
-	
-	private void move(int v, int h )
-	{
-		
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("What is going on");
+		MowerGame keyboardExample = new MowerGame();
+		frame.add(keyboardExample);
+		frame.setSize(200, 200);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public void keyPressed(KeyEvent arg0) {
-		if (arg0.getKeyCode() == KeyEvent.VK_DOWN )
-		{
-			move(-1,0);
+	public class MyKeyListener implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {
 		}
-		else if (arg0.getKeyCode() == KeyEvent.VK_UP )
-		{
-			move(1,0);
-		}
-		else if (arg0.getKeyCode() == KeyEvent.VK_RIGHT )
-		{
-			move(0,1);
-		}
-		else if (arg0.getKeyCode() == KeyEvent.VK_LEFT )
-		{
-			move(0,-1);
-		}
-		
-	}
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		@Override
+		public void keyPressed(KeyEvent e) {
+			System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			System.out.println("keyReleased="+KeyEvent.getKeyText(e.getKeyCode()));
+		}
 	}
 }

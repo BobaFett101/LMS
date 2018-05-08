@@ -1,8 +1,9 @@
+import javax.swing.JFrame;
 
 public class MowerStart {
-  //i like trains
-//hello world
+	public static void main(String[] args) {
+		JFrame window = new JFrame();
+		window.setSize(640, 480	);
 
-	// hehe xd
-
+	}
 }
