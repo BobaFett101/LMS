@@ -29,7 +29,11 @@ public class MowerGame extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
+			if ( e.getKeyCode() == KeyEvent.VK_DOWN)
+			{
+				System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
+			}
+			
 		}
 
 		@Override
